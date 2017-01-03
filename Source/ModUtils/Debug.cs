@@ -37,7 +37,7 @@ namespace ModUtils
 
 		public static void Log(object msg)
 		{
-			UnityEngine.Debug.Log(Pre + msg.ToString());
+			UnityEngine.Debug.Log(Pre + msg);
 		}
 
 		public static void Log(string format, params object[] args)

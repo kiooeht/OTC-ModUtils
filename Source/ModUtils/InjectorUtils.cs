@@ -42,10 +42,12 @@ namespace ModUtils
 		{
 			FieldInfo[] objfields = typeof(Old).GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
 			foreach (FieldInfo fi in objfields) {
-				var field = typeof(T).GetField(fi.Name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-				if (field == null) {
-					field = typeof(T).BaseType.GetField(fi.Name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-				}
+				FieldInfo field;
+				Type t = typeof(T);
+				do {
+					field = t.GetField(fi.Name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+					t = t.BaseType;
+				} while (t != null && object.ReferenceEquals(field, null));
 				if (field != null) {
 					field.SetValue(dest, fi.GetValue(source));
 				} else {

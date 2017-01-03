@@ -48,6 +48,9 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>..\..\..\..\..\..\..\..\..\SteamLibrary\steamapps\common\Offworld Trading Company\Offworld_Data\Managed\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>..\..\..\..\..\..\..\..\SteamLibrary\steamapps\common\Offworld Trading Company\Offworld_Data\Managed\System.Xml.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,6 +58,10 @@
     <Compile Include="InjectorUtils.cs" />
     <Compile Include="Debug.cs" />
     <Compile Include="KeyBinding.cs" />
+    <Compile Include="IOptionsSave.cs" />
+    <Compile Include="ModOptionsSave.cs" />
+    <Compile Include="ModOptionsScreenListener.cs" />
+    <Compile Include="OptionsCommon.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
