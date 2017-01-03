@@ -51,6 +51,15 @@ public override void Update()
 ```
 _**Note**: Currently you must call `KeyBindingUtils.ReloadKeyBindingManager()` in a mod's `Initialize()` and `Shutdown()` functions to use custom hotkeys._
 
+### Options Menu
+Classes for creating options menu tabs and saving your options to file.
+
+ * `ModOptionsScreenListener`
+ * `ModOptionsSave`
+ * `IOptionsSave`
+
+See the mod [UI+](http://steamcommunity.com/sharedfiles/filedetails/?id=819109474) on the Steam Workshop (source is included) for an example on how to use these.
+
 ### InjectorUtils
 Collection of functions for:
  * Replacing Unity scripts with your own.
