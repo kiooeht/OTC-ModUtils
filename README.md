@@ -62,6 +62,7 @@ See the mod [UI+](http://steamcommunity.com/sharedfiles/filedetails/?id=81910947
 
 ### InjectorUtils
 Collection of functions for:
+ * Replace the MainGameEventListener.
  * Replacing Unity scripts with your own.
  * Accessing or changing private variables.
  * Calling private functions.

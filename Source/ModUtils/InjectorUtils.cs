@@ -38,6 +38,23 @@ namespace ModUtils
 			return oldComp;
 		}
 
+		public static bool ReplaceMainGameEventHandler<T>(T eventhandler)
+			where T : MainGameEventHandler
+		{
+			if (AppMain.gApp.HUDDirector == null) {
+				return false;
+			}
+
+			try {
+				string n = AppMain.gApp.HUDDirector.mainGameScreen.GetEventHandler().GetType().Name;
+			} catch (NullReferenceException) {
+				return false;
+			}
+
+			SetPrivateMember(AppMain.gApp.HUDDirector.mainGameScreen, "eventHandler", eventhandler);
+			return AppMain.gApp.HUDDirector.mainGameScreen.GetEventHandler() == eventhandler;
+		}
+
 		public static void CopyAll<T, Old>(T dest, Old source)
 		{
 			FieldInfo[] objfields = typeof(Old).GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
