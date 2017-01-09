@@ -257,6 +257,20 @@ namespace ModUtils
 			return gameObject;
 		}
 
+		protected virtual void addToggle(GameObject panel, int item, string textkey)
+		{
+			toggles[(OptionsScreenCommon.OptionsScreenUIItem)item] =
+				MohawkUI.createToggleControl(this,
+											 TEXT(textkey),
+											 new GuiActionInfo(MOD_ID, item, 0), false, true, panel);
+		}
+
+		protected virtual void addSlider(GameObject panel, int item, int minValue, int maxValue, bool wholeNumbersOnly, float defaultValue)
+		{
+			sliders[(OptionsScreenCommon.OptionsScreenUIItem)item] =
+				MohawkUI.createSliderControl(this, new GuiActionInfo(MOD_ID, item, 0), panel.gameObject, minValue, maxValue, wholeNumbersOnly, defaultValue, true);
+		}
+
 		protected virtual void createModPanel(GameObject panel)
 		{
 			this.RefreshModValues();
