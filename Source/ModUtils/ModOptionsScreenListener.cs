@@ -78,7 +78,7 @@ namespace ModUtils
 
 		private bool installedInHUDDirector = false;
 		private bool modsInitialized = false;
-		private OptionsScreenListener optionslistener;
+		protected OptionsScreenListener optionslistener;
 		private int numOptionsScreen = -1;
 
 		protected AppMain APP
@@ -244,7 +244,7 @@ namespace ModUtils
 			InjectorUtils.CallPrivateBaseFunc(this, "switchTab", newTab);
 		}
 
-		private GameObject createTabPanel(int tab, bool isActive)
+		protected virtual GameObject createTabPanel(int tab, bool isActive)
 		{
 			GameObject gameObject = null;
 			if (tab == numOptionsScreen) {
