@@ -79,7 +79,7 @@ namespace ModUtils
 		private bool installedInHUDDirector = false;
 		private bool modsInitialized = false;
 		protected OptionsScreenListener optionslistener;
-		private int numOptionsScreen = -1;
+		protected int numOptionsScreen = -1;
 
 		protected AppMain APP
 		{
