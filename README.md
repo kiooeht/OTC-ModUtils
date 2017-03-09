@@ -39,17 +39,16 @@ public static KeyBindingType KEYBINDING_MY_HOTKEY = KeyBindingType.NONE;
 public override void Initialize()
 {
   KEYBINDING_MY_HOTKEY = KeyBindingUtils.Get("KEYBINDING_MY_HOTKEY");
-  KeyBindingUtils.ReloadKeyBindingManager();
 }
 
-public override void Update()
+public override void PostUpdate()
 {
   if (KEYBINDING_MY_HOTKEY.GetKeyDown()) {
     ...
   }
 }
 ```
-_**Note**: Currently you must call `KeyBindingUtils.ReloadKeyBindingManager()` in a mod's `Initialize()` and `Shutdown()` functions to use custom hotkeys._
+_**Note**: Hotkeys must be checked in the PostUpdate() function rather than Update() to work properly._
 
 ### Options Menu
 Classes for creating options menu tabs and saving your options to file.

@@ -35,7 +35,7 @@ namespace ModUtils
 			}
 
 			KeyBinding mcKeyCodes = AppMain.gApp.KeyBindingManager.KeyBinding(eKeyBinding).mcKeyCodes;
-			return mcKeyCodes.Any((KeyCombo combo) => (combo.Count - 1 == AppMain.gApp.KeyBindingManager.PressedKeys.Count)
+			return mcKeyCodes.Any((KeyCombo combo) => (combo.Count == AppMain.gApp.KeyBindingManager.PressedKeys.Count)
 				&& combo.All((KeyCode key) => key != KeyCode.None && MKeyBindingManager.CheckKeyPressed(key, Input.GetKey))
 				&& combo.Count((KeyCode key) => key != KeyCode.None && MKeyBindingManager.CheckKeyPressed(key, Input.GetKeyDown)) >= 1);
 		}
@@ -47,7 +47,7 @@ namespace ModUtils
 			}
 
 			KeyBinding mcKeyCodes = AppMain.gApp.KeyBindingManager.KeyBinding(eKeyBinding).mcKeyCodes;
-			return mcKeyCodes.Any((KeyCombo combo) => (combo.Count - 1 == AppMain.gApp.KeyBindingManager.PressedKeys.Count)
+			return mcKeyCodes.Any((KeyCombo combo) => (combo.Count == AppMain.gApp.KeyBindingManager.PressedKeys.Count)
 				&& combo.All((KeyCode key) => key != KeyCode.None && MKeyBindingManager.CheckKeyPressed(key, new Func<KeyCode, bool>(x => Input.GetKey(x) || Input.GetKeyUp(x))))
 				&& combo.Count((KeyCode key) => key != KeyCode.None && MKeyBindingManager.CheckKeyPressed(key, new Func<KeyCode, bool>(Input.GetKeyUp))) >= 1);
 		}
